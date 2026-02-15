@@ -1,7 +1,7 @@
 version: 2
 
 builds:
-  - main: .
+  - main: ./cmd/bltctl
     binary: bltctl
     goos:
       - darwin
@@ -10,7 +10,7 @@ builds:
       - arm64
     ldflags:
       - -s -w
-      - -X github.com/lu-zhengda/bltctl/cmd.version={{.Version}}
+      - -X github.com/lu-zhengda/bltctl/internal/cli.version={{.Version}}
 
 archives:
   - formats:

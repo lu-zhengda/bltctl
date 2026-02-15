@@ -1,4 +1,4 @@
-package cmd
+package cli
 
 import (
 	"fmt"
@@ -16,6 +16,10 @@ var infoCmd = &cobra.Command{
 		device, err := bluetooth.GetDevice(args[0])
 		if err != nil {
 			return err
+		}
+
+		if jsonFlag {
+			return printJSON(device)
 		}
 
 		status := "Disconnected"

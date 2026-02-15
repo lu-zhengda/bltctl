@@ -1,4 +1,4 @@
-package cmd
+package cli
 
 import (
 	"fmt"
@@ -10,6 +10,11 @@ import (
 	"github.com/lu-zhengda/bltctl/internal/bluetooth"
 )
 
+type diagResult struct {
+	bluetooth.DiagReport
+	BlueUtilInstalled bool `json:"blueutil_installed"`
+}
+
 var diagnoseCmd = &cobra.Command{
 	Use:   "diagnose",
 	Short: "Run Bluetooth diagnostics",
@@ -18,6 +23,13 @@ var diagnoseCmd = &cobra.Command{
 		report, err := bluetooth.Diagnose()
 		if err != nil {
 			return err
+		}
+
+		if jsonFlag {
+			return printJSON(diagResult{
+				DiagReport:        *report,
+				BlueUtilInstalled: bluetooth.IsBlueUtilInstalled(),
+			})
 		}
 
 		// Power state

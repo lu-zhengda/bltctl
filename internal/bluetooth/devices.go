@@ -10,12 +10,12 @@ import (
 
 // Device represents a paired Bluetooth device.
 type Device struct {
-	Name         string
-	Address      string
-	MinorType    string
-	Connected    bool
-	BatteryLevel int // 0-100, or -1 if unknown
-	RSSI         int // signal strength, or 0 if unknown
+	Name         string `json:"name"`
+	Address      string `json:"address"`
+	MinorType    string `json:"minor_type"`
+	Connected    bool   `json:"connected"`
+	BatteryLevel int    `json:"battery_level"` // 0-100, or -1 if unknown
+	RSSI         int    `json:"rssi"`          // signal strength, or 0 if unknown
 }
 
 // systemProfilerOutput represents the top-level system_profiler JSON.
