@@ -8,7 +8,7 @@ import (
 	"github.com/charmbracelet/bubbles/help"
 	"github.com/charmbracelet/bubbles/key"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/zhengda-lu/bltctl/internal/bluetooth"
+	"github.com/lu-zhengda/bltctl/internal/bluetooth"
 )
 
 type tickMsg time.Time

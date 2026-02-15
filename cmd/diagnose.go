@@ -7,7 +7,7 @@ import (
 	"text/tabwriter"
 
 	"github.com/spf13/cobra"
-	"github.com/zhengda-lu/bltctl/internal/bluetooth"
+	"github.com/lu-zhengda/bltctl/internal/bluetooth"
 )
 
 var diagnoseCmd = &cobra.Command{

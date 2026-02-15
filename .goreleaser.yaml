@@ -10,12 +10,14 @@ builds:
       - arm64
     ldflags:
       - -s -w
-      - -X github.com/zhengda-lu/bltctl/cmd.version={{.Version}}
+      - -X github.com/lu-zhengda/bltctl/cmd.version={{.Version}}
 
 archives:
   - formats:
       - tar.gz
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - completions/*
 
 checksum:
   name_template: "checksums.txt"
@@ -39,6 +41,10 @@ homebrew_casks:
     license: "MIT"
     binaries:
       - bltctl
+    completions:
+      bash: completions/bltctl.bash
+      zsh: completions/bltctl.zsh
+      fish: completions/bltctl.fish
     hooks:
       post:
         install: |

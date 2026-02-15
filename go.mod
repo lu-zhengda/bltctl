@@ -1,4 +1,4 @@
-module github.com/zhengda-lu/bltctl
+module github.com/lu-zhengda/bltctl
 
 go 1.25.0
 

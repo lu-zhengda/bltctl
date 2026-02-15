@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/zhengda-lu/bltctl/cmd"
+	"github.com/lu-zhengda/bltctl/cmd"
 )
 
 func main() {
