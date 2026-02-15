@@ -1,19 +1,16 @@
 # bltctl
 
-macOS Bluetooth manager -- browse, connect, and manage Bluetooth devices with a live-updating TUI or handy CLI subcommands.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform: macOS](https://img.shields.io/badge/Platform-macOS-lightgrey.svg)](https://github.com/lu-zhengda/bltctl)
+[![Homebrew](https://img.shields.io/badge/Homebrew-lu--zhengda/tap-orange.svg)](https://github.com/lu-zhengda/homebrew-tap)
+
+macOS Bluetooth manager — browse, connect, and manage Bluetooth devices from the terminal.
 
 ## Install
 
 ```bash
-# Homebrew (after first release)
-brew install lu-zhengda/tap/bltctl
-
-# From source
-go install github.com/zhengda-lu/bltctl@latest
-
-# Build locally
-git clone https://github.com/zhengda-lu/bltctl.git
-cd bltctl && go build -o bltctl .
+brew tap lu-zhengda/tap
+brew install bltctl
 ```
 
 ### Optional: blueutil
@@ -24,74 +21,62 @@ cd bltctl && go build -o bltctl .
 brew install blueutil
 ```
 
-Without blueutil, read-only commands (`list`, `battery`, `info`, `scan`, `diagnose`) work fully. Commands that modify state (`connect`, `disconnect`, `remove`) will show a clear message if blueutil is missing.
+Without blueutil, read-only commands (`list`, `battery`, `info`, `scan`, `diagnose`) work fully. Commands that modify state will show a clear message if blueutil is missing.
 
-## Quick Start
+## Usage
 
-```bash
-# Launch interactive TUI
-bltctl
+```
+$ bltctl list
+STATUS  NAME                  TYPE        ADDRESS            BATTERY
+●       Headphones            Headphones  70:F9:4A:7A:8B:CA  -
+○       AirPods               Headphones  98:DD:60:D2:4C:FF  -
+○       AirPods Pro           Headphones  74:15:F5:4E:D0:50  [██████████] 100%
+○       Beats Flex            Headphones  A8:91:3D:DE:91:C6  -
+○       Beats Studio Buds     Headphones  F4:34:F0:96:DD:A0  [██████████] 100%
 
-# List all paired devices
-bltctl list
-
-# Show battery levels
-bltctl battery
-
-# Connect to a device by name
-bltctl connect "AirPods Pro"
-
-# Disconnect a device
-bltctl disconnect "AirPods Pro"
-
-# Run diagnostics
-bltctl diagnose
+$ bltctl battery
+DEVICE      BATTERY  LEVEL
+AirPods Pro          [██████████] 100%
 ```
 
 ## Commands
 
 | Command | Description |
-|---|---|
-| `bltctl` | Launch interactive TUI |
-| `bltctl list` | List all paired devices |
-| `bltctl scan` | Alias for list |
-| `bltctl connect <device>` | Connect to a device (name or address) |
-| `bltctl disconnect <device>` | Disconnect a device |
-| `bltctl battery` | Show battery levels for connected devices |
-| `bltctl info <device>` | Show detailed device info |
-| `bltctl remove <device>` | Unpair a device |
-| `bltctl power on\|off` | Toggle Bluetooth power (requires sudo) |
-| `bltctl reset` | Reset Bluetooth module (requires sudo) |
-| `bltctl diagnose` | Run connection diagnostics |
+|---------|-------------|
+| `list` | List all paired devices with status and battery |
+| `scan` | Alias for list |
+| `connect <device>` | Connect to a device (name or address) |
+| `disconnect <device>` | Disconnect a device |
+| `battery` | Show battery levels for connected devices |
+| `info <device>` | Show detailed device info |
+| `remove <device>` | Unpair a device |
+| `power on\|off` | Toggle Bluetooth power (requires sudo) |
+| `reset` | Reset Bluetooth module (requires sudo) |
+| `diagnose` | Run connection diagnostics |
 
 ## TUI
 
-Launch without subcommands for the interactive TUI:
+Launch `bltctl` without arguments for the interactive TUI:
 
-```
-bltctl
-```
-
-**Features:**
 - Device list with connection status and battery levels
 - Color-coded: green for connected, gray for disconnected
 - Battery bar visualization (green >60%, yellow 20-60%, red <20%)
 - Auto-refresh every 5 seconds
-- Status bar showing blueutil availability
-
-**Keybindings:**
 
 | Key | Action |
-|---|---|
+|-----|--------|
 | `j`/`k` | Navigate up/down |
 | `c` | Connect to selected device |
 | `d` | Disconnect selected device |
 | `r` | Remove (unpair) selected device |
 | `p` | Toggle Bluetooth power |
 | `R` | Reset Bluetooth module |
-| `?` | Show help |
 | `q` | Quit |
+
+## Claude Code
+
+Available as a skill in the [macos-toolkit](https://github.com/lu-zhengda/macos-toolkit) Claude Code plugin.
 
 ## License
 
-MIT
+[MIT](LICENSE)
