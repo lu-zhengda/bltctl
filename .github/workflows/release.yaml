@@ -26,9 +26,9 @@ jobs:
       - name: Generate completions
         run: |
           mkdir -p completions
-          go run . --generate-completion bash > completions/bltctl.bash
-          go run . --generate-completion zsh > completions/bltctl.zsh
-          go run . --generate-completion fish > completions/bltctl.fish
+          go run ./cmd/bltctl --generate-completion bash > completions/bltctl.bash
+          go run ./cmd/bltctl --generate-completion zsh > completions/bltctl.zsh
+          go run ./cmd/bltctl --generate-completion fish > completions/bltctl.fish
 
       - uses: goreleaser/goreleaser-action@v6
         with:
