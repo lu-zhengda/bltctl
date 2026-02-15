@@ -1,6 +1,7 @@
 /bltctl
 dist/
 completions/
+docs/plans/
 .DS_Store
 coverage.out
 
