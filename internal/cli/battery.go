@@ -1,4 +1,4 @@
-package cmd
+package cli
 
 import (
 	"fmt"
@@ -17,6 +17,10 @@ var batteryCmd = &cobra.Command{
 		devices, err := bluetooth.ListConnected()
 		if err != nil {
 			return err
+		}
+
+		if jsonFlag {
+			return printJSON(devices)
 		}
 
 		if len(devices) == 0 {

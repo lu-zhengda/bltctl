@@ -1,4 +1,4 @@
-bltctl
+/bltctl
 dist/
 .DS_Store
 coverage.out

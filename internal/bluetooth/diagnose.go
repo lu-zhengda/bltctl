@@ -8,10 +8,10 @@ import (
 
 // DiagReport contains Bluetooth diagnostic information.
 type DiagReport struct {
-	PowerState       string
-	ControllerInfo   map[string]string
-	ConnectedDevices []Device
-	RecentErrors     []string
+	PowerState       string            `json:"power_state"`
+	ControllerInfo   map[string]string `json:"controller_info"`
+	ConnectedDevices []Device          `json:"connected_devices"`
+	RecentErrors     []string          `json:"recent_errors"`
 }
 
 // Diagnose performs a comprehensive Bluetooth diagnostic check.
