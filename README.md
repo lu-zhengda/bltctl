@@ -1,5 +1,16 @@
 # bltctl
 
+> ⚠️ **Deprecated — no longer actively maintained.**
+>
+> `bltctl` is no longer receiving updates. Bluetooth device management has not yet been
+> migrated to another macos-toolkit tool. In the interim:
+> - **Read-only monitoring** (device list, battery levels) can be done with
+>   [`blueutil`](https://github.com/toy/blueutil) directly (`brew install blueutil`).
+> - **macOS System Settings → Bluetooth** handles pairing/unpairing via the GUI.
+>
+> `bltctl` continues to work as-is on supported macOS versions, but no bug fixes or
+> feature updates are planned.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform: macOS](https://img.shields.io/badge/Platform-macOS-lightgrey.svg)](https://github.com/lu-zhengda/bltctl)
 [![Homebrew](https://img.shields.io/badge/Homebrew-lu--zhengda/tap-orange.svg)](https://github.com/lu-zhengda/homebrew-tap)
